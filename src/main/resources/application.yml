@@ -25,12 +25,28 @@ app:
     token-signing-key: ${app.oauth.client-secret}:${app.oauth.client-id}
     token-validity-seconds: 0
     refresh-token-validity-seconds: 0
+
 #  aws:
 #    end-point: https://s3.amazonaws.com
 #    region-name: ap-northeast-2
 
 storage:
   location: ./files
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    groups-order: DESC
+    operationsSorter: method
+    disable-swagger-default-url: true
+    display-request-duration: true
+  api-docs:
+    path: /api-docs
+  show-actuator: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  paths-to-match:
+    - /v1/**
 
 ---
 

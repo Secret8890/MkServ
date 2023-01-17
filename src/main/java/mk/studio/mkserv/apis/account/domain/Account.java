@@ -5,9 +5,7 @@ import mk.studio.mkserv.common.base.BaseEntity;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -17,13 +15,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 public class Account extends BaseEntity implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NonNull
+    @NotNull
     @ColumnDefault("true")
-    private boolean isActive = true; //사용여부
+    private boolean isActive; //사용여부
 
     private String email; // 이메일
 
